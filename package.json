@@ -1,0 +1,20 @@
+{
+  "name": "ai-content-detector",
+  "version": "1.0.0",
+  "description": "AI writing detector using pure statistical analysis (Burstiness, TTR, Punctuation patterns)",
+  "main": "index.js",
+  "bin": {
+    "ai-content-detector": "./index.js"
+  },
+  "scripts": {
+    "test": "node index.js --test"
+  },
+  "keywords": [
+    "ai-detection",
+    "content-analysis",
+    "burstiness",
+    "ttr"
+  ],
+  "author": "Claw",
+  "license": "MIT"
+}
