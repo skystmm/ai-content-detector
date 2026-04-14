@@ -93,7 +93,23 @@ node index.js /path/to/article.txt
 node index.js --test
 ```
 
-#### 2️⃣ 在代码中使用
+#### 2️⃣ 模型辅助检测（推荐）
+
+```bash
+# 使用 LLM 辅助分析（输出检测 Prompt）
+node scripts/detect.js article.txt
+
+# 该脚本会生成标准化的检测 Prompt
+# 由 OpenClaw Skill 调用 LLM 进行分析
+```
+
+**输出包含**：
+- 预估 AI 率
+- 高风险段落 + 改写建议
+- 低风险段落
+- 改写优先级
+
+#### 3️⃣ 在代码中使用
 
 ```javascript
 const { AIDetector } = require('./index.js');
@@ -223,20 +239,25 @@ node index.js paper_methodology.txt
 
 ```
 ai-content-detector/
-├── index.js        # 主程序（检测逻辑 + CLI）
-├── package.json    # Node.js 配置
-├── README.md       # 本文档
-└── SKILL.md        # OpenClaw Skill 文档
+├── index.js            # 纯统计分析检测（Burstiness、TTR）
+├── scripts/
+│   ├── detect.js       # 模型辅助检测脚本
+│   └── detect-prompt.md # LLM 检测 Prompt 模板
+├── package.json        # Node.js 配置
+├── README.md           # 本文档
+└── SKILL.md            # OpenClaw Skill 文档（完整工作流）
 ```
 
 ---
 
 ## 🔮 扩展计划
 
-- [ ] 模型辅助判断（Perplexity 计算）
+- [x] 模型辅助判断（已实现 `scripts/detect.js`）
+- [x] Traces 记录（SKILL.md 工作流）
+- [x] 改写建议（检测报告输出）
 - [ ] 英文文本检测支持
 - [ ] 更多 AI 句式模板
-- [ ] 本地小模型集成
+- [ ] 本地小模型集成（Perplexity 计算）
 - [ ] Web API 接口
 - [ ] 批量处理模式
 
