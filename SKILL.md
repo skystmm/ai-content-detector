@@ -209,14 +209,6 @@ AI检测
 
 ---
 
-## 集成到 SOP
-
-**触发时机**：SOP_GZH.md 阶段 5.6（SEO优化后、头图生成前）
-
-**自动化程度**：当前为手动检测，未来可升级为自动化（如有 API）
-
----
-
 ## 参考资料
 
 - Harrison Chase 持续学习框架：Model + Harness + Context
